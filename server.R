@@ -44,9 +44,17 @@ shinyServer(function(input, output) {
   })
   
   
-  get_model <- function(){
+  get_model <- function() {
     formula_text = as.formula(paste(input$select_y, '~', paste(input$select_X, collapse = '+'), '-1'))
     model = glm(formula = formula_text, data = dataset)
   }
+  
+  
+  output$coef_plot <- renderPlot(
+    {
+      model <- get_model()
+      coefplot(model, xlab = input$select_y)
+    }
+  )
   
 })

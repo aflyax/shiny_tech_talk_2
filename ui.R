@@ -44,7 +44,9 @@ shinyUI(fluidPage(
               ),
               
               tabPanel(inputId = 'model_plot',
-                       title = 'model plot'
+                       title = 'model plot',
+                       actionButton(inputId = 'plotButton', label='plot'),
+                       plotOutput('coef_plot')
               )
             )
   )
