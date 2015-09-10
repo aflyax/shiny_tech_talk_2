@@ -2,16 +2,7 @@ shinyUI(fluidPage(
   headerPanel(
     'Shiny Tech Talk'
   ),
-  sidebarPanel('sidebar',
-               selectizeInput(inputId = 'select_X',
-                              label = 'please select X',
-                              choices = names(dataset),
-                              select = names(dataset)[1:2],
-                              multiple = TRUE,
-                              options = list(
-                                plugins = list('remove_button', 'drag_drop')
-                              )
-               )
+  sidebarPanel('sidebar'
   ),
   
   mainPanel('mainbar',
