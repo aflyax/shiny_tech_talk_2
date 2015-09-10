@@ -2,6 +2,7 @@ shinyUI(fluidPage(
   headerPanel(
     'Shiny Tech Talk'
   ),
+  
   sidebarPanel('sidebar',
                selectizeInput(inputId = 'select_X',
                               label = 'please select X',
@@ -28,7 +29,8 @@ shinyUI(fluidPage(
               ),
               
               tabPanel(inputId = 'selected_data',
-                       title = 'selected data'
+                       title = 'selected data',
+                       dataTableOutput('selected_data')
               ),
               
               tabPanel(inputId = 'data_plot',
