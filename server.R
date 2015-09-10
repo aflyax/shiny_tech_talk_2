@@ -52,8 +52,15 @@ shinyServer(function(input, output) {
   
   output$coef_plot <- renderPlot(
     {
-      model <- get_model()
-      coefplot(model, xlab = input$select_y)
+      input$plotButton
+      
+      if (input$plotButton == 0)
+        return()
+      
+      isolate({
+        model <- get_model()
+        coefplot(model, xlab = input$select_y)
+      })
     }
   )
   
