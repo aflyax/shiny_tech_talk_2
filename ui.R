@@ -34,7 +34,8 @@ shinyUI(fluidPage(
               ),
               
               tabPanel(inputId = 'data_plot',
-                       title = 'plot data'
+                       title = 'plot data',
+                       plotOutput('data_plot')
               ),
               
               tabPanel(inputId = 'model_output',
