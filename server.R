@@ -39,7 +39,14 @@ shinyServer(function(input, output) {
   
   
   output$model_text <- renderPrint({
-    paste(input$select_y, '~', paste(input$select_X, collapse = '+'), '-1')
+    model <- get_model()
+    summary(model)
   })
+  
+  
+  get_model <- function(){
+    formula_text = as.formula(paste(input$select_y, '~', paste(input$select_X, collapse = '+'), '-1'))
+    model = glm(formula = formula_text, data = dataset)
+  }
   
 })
