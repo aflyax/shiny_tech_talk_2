@@ -37,4 +37,9 @@ shinyServer(function(input, output) {
     }
   )
   
+  
+  output$model_text <- renderPrint({
+    paste(input$select_y, '~', paste(input$select_X, collapse = '+'), '-1')
+  })
+  
 })
